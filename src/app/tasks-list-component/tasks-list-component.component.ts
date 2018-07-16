@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { TasksListService } from '../tasks-list.service';
 
 @Component({
   selector: 'app-tasks-list-component',
@@ -8,12 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TasksListComponentComponent implements OnInit {
 
-tasks: Array<any> = [];
-  constructor(private http: HttpClient) { }
+  tasks: any = [];
+  constructor(private tasksService: TasksListService) { }
 
-  ngOnInit(): void {
-    this.http.get('http://yii.loc/').subscribe(data => {
-     this.tasks = data
+  ngOnInit() {
+     this.tasksService.getAllTasks().subscribe(tasks => {
+      this.tasks = tasks;
+      console.log(tasks);
     });
   }
 }

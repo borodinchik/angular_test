@@ -1,16 +1,18 @@
 
 <div class="row">
-    <div *ngFor="let task of tasks" class="col s12 m3">
+    <div *ngFor="let task of tasks" class="col s12 m4">
       <div class="card">
         <div class="card-image">
-          <img src="https://materializecss.com/images/sample-1.jpg">
+          <img src="http://yii.loc/uploads/{{task.image}}">
           <span class="card-title">{{task.title}}</span>
         </div>
         <div class="card-content">
           <p>{{task.description}}</p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a href="task/{{task.id}}" class="waves-effect waves-light btn-small">Show</a>
+          <a class="waves-effect waves-light btn-small">Update</a>
+          <a class="waves-effect waves-light btn-small">delete</a>
         </div>
       </div>
   </div>

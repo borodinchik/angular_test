@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
 
 
 import { AppComponent } from './app.component';
@@ -9,9 +10,12 @@ import { TasksListComponentComponent } from './tasks-list-component/tasks-list-c
 import { HeaderComponent } from './header/header.component';
 import { TaskComponent } from './task/task.component';
 
+import { TasksListService } from './tasks-list.service';
+
+
 const appRoutes: Routes = [
   { path: '', component: TasksListComponentComponent },
-  // { path: 'task/id', component: TasksListComponentComponent }
+  { path: 'task/:id', component: TaskComponent }
 ];
 
 @NgModule({
@@ -19,15 +23,15 @@ const appRoutes: Routes = [
     AppComponent,
     TasksListComponentComponent,
     HeaderComponent,
-    TaskComponent
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule,
+    HttpModule,
 
   ],
-  providers: [],
+  providers: [TasksListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
