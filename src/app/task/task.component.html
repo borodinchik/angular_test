@@ -1,5 +1,14 @@
 <div class="row">
-<div class="col s12 m12">
-  <p class="z-depth-5">z-depth-5</p>
+<div class="col s12 m12 z-depth-5">
+  <br>
+  <div class="image">
+  <img class="z-depth-5" src="http://yii.loc/uploads/{{task.image}}" alt="">
+  </div>
+    <a href="task/update/{{task.id}}" class="waves-effect waves-light btn-small z-depth-5">Update</a>
+    <!--<a class="waves-effect waves-light btn-small z-depth-5" (click)="deleteTask(task.id)">delete</a>-->
+  <hr>
+  <h3>{{task.title}}</h3>
+  <hr>
+  <p>{{task.description}}</p>
 </div>
 </div>

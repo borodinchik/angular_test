@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
+import {log} from 'util';
 
 
 @Injectable({
@@ -20,7 +21,9 @@ export class TasksListService {
         });
       }));
     }
-    deleteTasks() {
-      return this.http.get('http://yii.loc/task/');
+    deleteTaskById(url) {
+     return this.http.delete(url).subscribe(data => {
+       console.log(data);
+     });
     }
 }

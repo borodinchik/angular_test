@@ -1,6 +1,6 @@
 
 <div class="row">
-    <div *ngFor="let task of tasks" class="col s12 m4">
+    <div *ngFor="let task of tasks" class="col s12 m3 1">
       <div class="card">
         <div class="card-image">
           <img src="http://yii.loc/uploads/{{task.image}}">
@@ -11,8 +11,8 @@
         </div>
         <div class="card-action">
           <a href="task/{{task.id}}" class="waves-effect waves-light btn-small">Show</a>
-          <a class="waves-effect waves-light btn-small">Update</a>
-          <a class="waves-effect waves-light btn-small">delete</a>
+          <a href="task/update/{{task.id}}" class="waves-effect waves-light btn-small">Update</a>
+          <a class="waves-effect waves-light btn-small" (click)="deleteTask(task.id)">delete</a>
         </div>
       </div>
   </div>
